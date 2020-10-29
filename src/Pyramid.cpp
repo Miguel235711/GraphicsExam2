@@ -1,11 +1,17 @@
 #include "Pyramid.h"
 
-Pyramid::Pyramid(GLfloat x, GLfloat y, GLfloat height,GLfloat sideLength, Operators3D * opGlobal):Drawable(opGlobal)
+Pyramid::Pyramid(Point peak, GLfloat height,GLfloat sideLength, Operators3D * opGlobal):Drawable(opGlobal)
 {
-    ///instantiate and add corresponding children
-    Triangle triangle1 = Triangle (Point (x,y,height), Point (x-height*sqrt(2), y-height*sqrt(2), -height),Point (x+height*sqrt(2), y+height*sqrt(2), -height), opGlobal);
+        //ctor
+    ///instantiate children and add them to this
+    auto * triangle1 = new Triangle (peak, Point (peak.x-sideLength*sqrt(2),peak.y-height,peak.z),Point (peak.x+sideLength*sqrt(2),peak.y-height, peak.z+sideLength*sqrt(2)), opGlobal);
+    auto * triangle2 = new Triangle (peak, Point (peak.x-sideLength*sqrt(2),peak.y-height,peak.z),Point (peak.x-sideLength*sqrt(2),peak.y-height, peak.z-sideLength*sqrt(2)), opGlobal);
+    auto * triangle3 = new Triangle (peak, Point (peak.x+sideLength*sqrt(2),peak.y-height,peak.z),Point (peak.x+sideLength*sqrt(2),peak.y-height, peak.z+sideLength*sqrt(2)), opGlobal);
+    auto * triangle4 = new Triangle (peak, Point (peak.x+sideLength*sqrt(2),peak.y-height,peak.z),Point (peak.x-sideLength*sqrt(2),peak.y-height, peak.z-sideLength*sqrt(2)), opGlobal);
     addChild (triangle1);
-
+    addChild (triangle2);
+    addChild (triangle3);
+    addChild (triangle4);
 }
 
 Pyramid::~Pyramid()

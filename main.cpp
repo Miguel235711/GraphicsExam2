@@ -5,6 +5,9 @@
 #include "Triangle.h"
 #include "Rectangle.h"
 #include "Circle.h"
+#include "Pyramid.h"
+#include "Line.h"
+
 
 //Variables dimensiones de la pantalla
 int WIDTH=500;
@@ -115,8 +118,10 @@ auto triangle5 = Triangle(Point(0,0,0),Point(2,0,0),Point(2,2,0),opInstance);
 auto triangle6 = Triangle(Point(0,0,0),Point(2,0,0),Point(2,2,0),opInstance);
 auto rectangle = Exam2::Rectangle(2,2,opInstance);
 auto rectangle2 = Exam2::Rectangle(-2,-2,opInstance);
+auto pyramid = Pyramid(Point (0,0,0),3,2,opInstance);
+auto pyramid2 =Pyramid(Point (-5,3,4),4,5,opInstance);
 auto circle = Circle(0,0,3,30,opInstance);
-
+auto line = Exam2::Line (Point (1.5,1.5,1.5), Point (1.5,1.5,10),opInstance);
 
 int main(int argc, char **argv)
 {
@@ -140,8 +145,8 @@ int main(int argc, char **argv)
     glutDisplayFunc([](){
         //std::cout << "glutDisplayFunc\n";
         glClear(GL_COLOR_BUFFER_BIT);
-        drawAxis();
-        triangle.draw();
+       // drawAxis();
+        /*triangle.draw();
         triangle2.draw();
         triangle3.draw();
         triangle4.draw();
@@ -149,13 +154,15 @@ int main(int argc, char **argv)
         triangle6.draw();
         rectangle.draw();
         rectangle2.draw();
-        circle.draw();
+        circle.draw();*/
+        //line.draw();
         glFlush();
     });
     glutIdleFunc([](){
         glClear(GL_COLOR_BUFFER_BIT);
         drawAxis();
-        triangle.update().draw();
+        line.draw();
+        /*triangle.update().draw();
         triangle2.update().draw();
         triangle3.update().draw();
         triangle4.update().draw();
@@ -163,7 +170,9 @@ int main(int argc, char **argv)
         triangle6.update().draw();
         rectangle.update().draw();
         rectangle2.update().draw();
-        circle.update().draw();
+        circle.update().draw();*/
+        pyramid.draw();
+        pyramid2.draw();
         glFlush();
     });
     //glutKeyboardFunc(keys);
