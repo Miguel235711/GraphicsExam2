@@ -1,6 +1,8 @@
 #ifndef CUBOID_H
 #define CUBOID_H
 
+#include<iostream>
+
 #include "Rectangle.h"
 #include "Drawable.h"
 
@@ -11,6 +13,11 @@ class Cuboid: public Drawable
         virtual ~Cuboid();
 
     protected:
+        void applyGlobalMatrixToPoints();
+        void applyUniqueTransToPoints(GLfloat x, GLfloat y, GLfloat z);
+        void applyUniqueEscaltionToPoints(GLfloat x,GLfloat y,GLfloat z);
+        void applyUniqueRotationToPoints(GLfloat theta, Point P1, Point P2);
+        void lowLevelDraw();
 
     private:
 };

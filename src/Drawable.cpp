@@ -29,8 +29,8 @@ Drawable & Drawable::update(){
     opGlobal->pop();
     return *this;
 }
-Drawable & Drawable::addChild(Drawable & child){
-    children.push_back(&child);
+Drawable & Drawable::addChild(Drawable * child){
+    children.push_back(child);
     return *this;
 }
 ///Applied in every update

@@ -14,7 +14,7 @@ class Drawable
         virtual ~Drawable();
         Drawable & draw();
         Drawable & update();
-        Drawable & addChild(Drawable & child);
+        Drawable & addChild(Drawable * child);
         ///Applied in every update
         Drawable & addTranslation(GLfloat dx,GLfloat dy,GLfloat dz);
         Drawable & addEscalation(GLfloat dx,GLfloat dy, GLfloat dz);
