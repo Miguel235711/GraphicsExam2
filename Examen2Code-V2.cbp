@@ -47,6 +47,7 @@
 		<Unit filename="include/Circle.h" />
 		<Unit filename="include/Cuboid.h" />
 		<Unit filename="include/Drawable.h" />
+		<Unit filename="include/Line.h" />
 		<Unit filename="include/Operators3D.h" />
 		<Unit filename="include/Point.h" />
 		<Unit filename="include/Polygon.h" />
@@ -57,7 +58,9 @@
 		<Unit filename="src/Circle.cpp" />
 		<Unit filename="src/Cuboid.cpp" />
 		<Unit filename="src/Drawable.cpp" />
+		<Unit filename="src/Line.cpp" />
 		<Unit filename="src/Operators3D.cpp" />
+		<Unit filename="src/Point.cpp" />
 		<Unit filename="src/Polygon.cpp" />
 		<Unit filename="src/Pyramid.cpp" />
 		<Unit filename="src/Rectangle.cpp" />
