@@ -4,7 +4,8 @@
 #include "Polygon.h"
 #include "Point.h"
 #include "Operators3D.h"
-
+#include "Triangle.h"
+#include "math.h"
 
 
 class Pyramid : Drawable
@@ -15,7 +16,11 @@ class Pyramid : Drawable
         virtual ~Pyramid();
 
     protected:
-
+            void applyGlobalMatrixToPoints();
+            void applyUniqueTransToPoints(GLfloat x, GLfloat y, GLfloat z);
+            void applyUniqueEscaltionToPoints(GLfloat x,GLfloat y,GLfloat z);
+            void applyUniqueRotationToPoints(GLfloat theta, Point P1, Point P2);
+            void lowLevelDraw();
     private:
 };
 
