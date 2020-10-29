@@ -44,16 +44,24 @@
 			<Add library="gdi32" />
 			<Add directory="D:/Apps/CodeBlocks/MinGW/lib" />
 		</Linker>
+		<Unit filename="include/Circle.h" />
+		<Unit filename="include/CircularPrism.h" />
+		<Unit filename="include/Cuboid.h" />
 		<Unit filename="include/Drawable.h" />
 		<Unit filename="include/Operators3D.h" />
 		<Unit filename="include/Point.h" />
 		<Unit filename="include/Polygon.h" />
+		<Unit filename="include/Pyramid.h" />
 		<Unit filename="include/Rectangle.h" />
 		<Unit filename="include/Triangle.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Circle.cpp" />
+		<Unit filename="src/CircularPrism.cpp" />
+		<Unit filename="src/Cuboid.cpp" />
 		<Unit filename="src/Drawable.cpp" />
 		<Unit filename="src/Operators3D.cpp" />
 		<Unit filename="src/Polygon.cpp" />
+		<Unit filename="src/Pyramid.cpp" />
 		<Unit filename="src/Rectangle.cpp" />
 		<Unit filename="src/Triangle.cpp" />
 		<Extensions>
