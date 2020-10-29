@@ -1,4 +1,3 @@
-
 #include <vector>
 #include <iostream>
 #include "Operators3D.h"
@@ -6,8 +5,6 @@
 #include "Triangle.h"
 #include "Rectangle.h"
 #include "Circle.h"
-#include "Cuboid.h"
-#include "CircularPrism.h"
 
 //Variables dimensiones de la pantalla
 int WIDTH=500;
@@ -119,11 +116,6 @@ auto triangle6 = Triangle(Point(0,0,0),Point(2,0,0),Point(2,2,0),opInstance);
 auto rectangle = Exam2::Rectangle(2,2,opInstance);
 auto rectangle2 = Exam2::Rectangle(-2,-2,opInstance);
 auto circle = Circle(0,0,3,30,opInstance);
-auto cuboid = Cuboid(3,3,3,opInstance);
-auto cuboid2 = Cuboid(2,1,3,opInstance);
-auto cuboid4= Cuboid(2,1,3,opInstance);
-auto cuboid3= Cuboid(-2,-1,-3,opInstance);
-auto circularPrism = CircularPrism(0,0,3,3,30,opInstance);
 
 
 int main(int argc, char **argv)
@@ -145,8 +137,6 @@ int main(int argc, char **argv)
     triangle6.addTranslation(0,0,-0.0001).addEscalation(1.00001,1.00001,1.00001).addRotation(Point(0,0,0),Point(0,0,1),0.1);
     rectangle.translate(0,0,5).addTranslation(0,0,0.0001).addRotation(Point(0,0,0),Point(1,1,0),0.1);
     circle.addEscalation(1.00001,1.00001,1.00001);
-    cuboid.addTranslation(0,0.0001,0).addRotation(Point(0,0,0),Point(1,1,0),0.1);
-    cuboid2.addTranslation(0,0.0001,0.0001).addEscalation(1.00001,1.00001,1.00001);
     glutDisplayFunc([](){
         //std::cout << "glutDisplayFunc\n";
         glClear(GL_COLOR_BUFFER_BIT);
@@ -160,17 +150,12 @@ int main(int argc, char **argv)
         rectangle.draw();
         rectangle2.draw();
         circle.draw();
-        cuboid.draw();
-        cuboid2.draw();
-        cuboid3.draw();
-        cuboid4.draw();
-        circularPrism.draw();
         glFlush();
     });
     glutIdleFunc([](){
         glClear(GL_COLOR_BUFFER_BIT);
         drawAxis();
-        /*triangle.update().draw();
+        triangle.update().draw();
         triangle2.update().draw();
         triangle3.update().draw();
         triangle4.update().draw();
@@ -178,12 +163,7 @@ int main(int argc, char **argv)
         triangle6.update().draw();
         rectangle.update().draw();
         rectangle2.update().draw();
-        circle.draw();*/
-        cuboid.update().draw();
-        cuboid2.update().draw();
-        cuboid3.update().draw();
-        cuboid4.update().draw();
-        circularPrism.update().draw();
+        circle.update().draw();
         glFlush();
     });
     //glutKeyboardFunc(keys);
