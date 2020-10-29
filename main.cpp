@@ -3,6 +3,9 @@
 #include <iostream>
 #include "Operators3D.h"
 #include "Polygon.h"
+#include "Triangle.h"
+#include "Rectangle.h"
+#include "Circle.h"
 
 //Variables dimensiones de la pantalla
 int WIDTH=500;
@@ -105,11 +108,15 @@ void init()
 }
 
 auto * opInstance = new Operators3D();
-auto triangle = Exam2::Polygon(opInstance,std::vector<Point>{Point(0,0,0),Point(2,0,0),Point(2,2,0)});
-auto triangle2 = Exam2::Polygon(opInstance,std::vector<Point>{Point(0,2,5),Point(0,0,0),Point(0,0,-5)});
-auto triangle3 = Exam2::Polygon(opInstance,std::vector<Point>{Point(0,0,0),Point(2,0,0),Point(2,2,0)});
-auto triangle4 = Exam2::Polygon(opInstance,std::vector<Point>{Point(0,0,0),Point(2,0,0),Point(2,2,0)});
-auto triangle5 = Exam2::Polygon(opInstance,std::vector<Point>{Point(0,0,0),Point(2,0,0),Point(2,2,0)});
+auto triangle = Triangle(Point(0,0,0),Point(2,0,0),Point(2,2,0),opInstance);
+auto triangle2 = Triangle(Point(0,2,5),Point(0,0,0),Point(0,0,-5),opInstance);
+auto triangle3 = Triangle(Point(0,0,0),Point(2,0,0),Point(2,2,0),opInstance);
+auto triangle4 = Triangle(Point(0,0,0),Point(2,0,0),Point(2,2,0),opInstance);
+auto triangle5 = Triangle(Point(0,0,0),Point(2,0,0),Point(2,2,0),opInstance);
+auto triangle6 = Triangle(Point(0,0,0),Point(2,0,0),Point(2,2,0),opInstance);
+auto rectangle = Exam2::Rectangle(2,2,opInstance);
+auto rectangle2 = Exam2::Rectangle(-2,-2,opInstance);
+auto circle = Circle(0,0,3,30,opInstance);
 
 
 int main(int argc, char **argv)
@@ -128,6 +135,9 @@ int main(int argc, char **argv)
     triangle3.addRotation(Point(0,0,0),Point(0,1,0),0.1);
     triangle4.translate(1,1,0).addTranslation(0.001,0,0).addRotation(Point(0,0,0),Point(1,1,0),0.1);
     triangle5.translate(0,0,-15).escale(1.5,1.5,1.5).rotate(Point(0,0,0),Point(0,0,1),130);
+    triangle6.addTranslation(0,0,-0.0001).addEscalation(1.00001,1.00001,1.00001).addRotation(Point(0,0,0),Point(0,0,1),0.1);
+    rectangle.translate(0,0,5).addTranslation(0,0,0.0001).addRotation(Point(0,0,0),Point(1,1,0),0.1);
+    circle.addEscalation(1.00001,1.00001,1.00001);
     glutDisplayFunc([](){
         //std::cout << "glutDisplayFunc\n";
         glClear(GL_COLOR_BUFFER_BIT);
@@ -137,16 +147,24 @@ int main(int argc, char **argv)
         triangle3.draw();
         triangle4.draw();
         triangle5.draw();
+        triangle6.draw();
+        rectangle.draw();
+        rectangle2.draw();
+        circle.draw();
         glFlush();
     });
     glutIdleFunc([](){
         glClear(GL_COLOR_BUFFER_BIT);
         drawAxis();
-        triangle/*.translate(0,0,-0.001)*/.update().draw();
+        triangle.update().draw();
         triangle2.update().draw();
         triangle3.update().draw();
         triangle4.update().draw();
         triangle5.update().draw();
+        triangle6.update().draw();
+        rectangle.update().draw();
+        rectangle2.update().draw();
+        circle.update().draw();
         glFlush();
     });
     //glutKeyboardFunc(keys);

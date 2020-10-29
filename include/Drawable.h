@@ -31,6 +31,7 @@ class Drawable
         virtual void applyUniqueEscaltionToPoints(GLfloat x,GLfloat y,GLfloat z) = 0;
         virtual void applyUniqueRotationToPoints(GLfloat theta, Point P1, Point P2) = 0;
         virtual void lowLevelDraw() = 0;
+        constexpr static GLfloat pi2=4*acos(0);
         Operators3D * opGlobal;
         vv A;
     private:

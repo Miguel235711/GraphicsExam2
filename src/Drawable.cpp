@@ -21,14 +21,12 @@ Drawable & Drawable::update(){
     ///push change to global matrix
     opGlobal->push();
     opGlobal->MultM(A,opGlobal->A.top(),opGlobal->A.top());
-    ///TODO...
     applyGlobalMatrixToPoints(); ///call method that MUST be implemented by extended classes
     ///call recursively children
     for(auto *child: children)
         child->update();
     ///pop change of global matrix
     opGlobal->pop();
-    ///TODO...
     return *this;
 }
 Drawable & Drawable::addChild(Drawable & child){
@@ -48,6 +46,7 @@ Drawable & Drawable::addTranslation(GLfloat dx,GLfloat dy,GLfloat dz){
 }
 Drawable & Drawable::addEscalation(GLfloat dx,GLfloat dy, GLfloat dz){
     ///TODO
+    opGlobal->escale(dx,dy,dz,A);
     return *this;
 }
 Drawable & Drawable::addRotation(Point p1, Point p2, GLfloat theta){

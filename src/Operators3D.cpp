@@ -274,6 +274,12 @@ Operators3D & Operators3D::RotacionLibre(GLfloat theta, v p1, v p2, vv & ans)
     MultM(PreC2,ans,ans);
     return *this;
 }
+Operators3D & Operators3D::escale(GLfloat x, GLfloat y, GLfloat z, vv & ans){
+    auto e = vv(4,v(4));
+    e[0][0]=x,e[1][1]=y,e[2][2]=z,e[3][3]=1;
+    MultM(e,ans,ans);
+    return *this;
+}
 
 Operators3D & Operators3D::push(){
     A.push(A.top());

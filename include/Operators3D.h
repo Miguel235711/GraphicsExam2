@@ -21,6 +21,7 @@ class Operators3D
         virtual ~Operators3D();
         Operators3D & RotacionLibre(GLfloat theta, v p1, v p2, vv & ans);
         Operators3D & translate(GLfloat x, GLfloat y, GLfloat z, vv & ans);
+        Operators3D & escale(GLfloat x, GLfloat y, GLfloat z, vv & ans);
         Operators3D & MultM(vv & M1, vv & M2, vv & ans);
         GLfloat RadToDeg(GLfloat r);
         GLfloat DegToRad(GLfloat g);
