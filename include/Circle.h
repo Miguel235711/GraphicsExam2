@@ -8,13 +8,13 @@
 class Circle : public Exam2::Polygon
 {
     public:
-        Circle(int x, int y, int r, int partitions,Operators3D * opGlobal);
+        Circle(GLfloat x, GLfloat y, GLfloat r, int partitions,Operators3D * opGlobal);
         virtual ~Circle();
 
     protected:
 
     private:
-        std::vector<Point> init(int x,int y,int r,int partitions);
+        std::vector<Point> init(GLfloat x,GLfloat y,GLfloat r,int partitions);
 };
 
 #endif // CIRCLE_H
