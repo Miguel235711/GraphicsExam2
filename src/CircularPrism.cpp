@@ -8,6 +8,11 @@ CircularPrism::CircularPrism(GLfloat x,GLfloat y,GLfloat z,GLfloat r,int partiti
     auto * circle2 = new Circle(x,y,r,partitions,opGlobal);
     circle2->translate(0,0,z);
     addChild(circle2);
+    auto difRad = pi2/partitions;
+    for(GLfloat theta = 0; theta < pi2 ; theta += difRad){
+        auto xT = r*cos(theta)+x, yT = r*sin(theta)+y;
+        addChild(new Exam2::Line(Point(xT,yT,0),Point(xT,yT,z),opGlobal));
+    }
     //ctor
 }
 
