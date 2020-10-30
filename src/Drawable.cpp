@@ -21,6 +21,8 @@ Drawable & Drawable::update(){
     ///push change to global matrix
     opGlobal->push();
     opGlobal->MultM(A,opGlobal->A.top(),opGlobal->A.top());
+    if(p1&&p2) ///apply dynamic rotation to this and all children if defined
+        rotate(*p1,*p2,theta);
     applyGlobalMatrixToPoints(); ///call method that MUST be implemented by extended classes
     ///call recursively children
     for(auto *child: children)
@@ -57,6 +59,15 @@ Drawable & Drawable::addRotation(Point p1, Point p2, GLfloat theta){
     opGlobal->RotacionLibre(theta,{p1.x,p1.y,p1.z},{p2.x,p2.y,p2.z},A);
 
     print();
+    return *this;
+}
+Drawable & Drawable::setDynamicRotation(Point * p1, Point * p2, GLfloat theta){
+    std::cout << "before adding pointed rotation\n";
+    std::cout << "theta = " << theta << "\n";
+    std::cout << "after adding rotation\n";
+    ///add rotation pointer to dynamic rotation
+    this->p1 = p1, this->p2 = p2;
+    this->theta = theta;
     return *this;
 }
 ///Applied once to this an its children
