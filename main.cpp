@@ -6,6 +6,7 @@
 #include "Rectangle.h"
 #include "Circle.h"
 #include "Pine.h"
+#include "Balloon.h"
 
 //Variables dimensiones de la pantalla
 int WIDTH=500;
@@ -118,6 +119,7 @@ auto rectangle = Exam2::Rectangle(2,2,opInstance);
 auto rectangle2 = Exam2::Rectangle(-2,-2,opInstance);
 auto circle = Circle(2,3,3,30,opInstance);
 auto pine = Pine (Point (3,10,5),10,1, opInstance);
+auto balloon = Balloon (1,1,1,2,10,opInstance);
 int main(int argc, char **argv)
 {
 
@@ -137,6 +139,7 @@ int main(int argc, char **argv)
     triangle6.addTranslation(0,0,-0.0001).addEscalation(1.00001,1.00001,1.00001).addRotation(Point(0,0,0),Point(0,0,1),0.1);
     rectangle.translate(0,0,5).addTranslation(0,0,0.0001).addRotation(Point(0,0,0),Point(1,1,0),0.1);
     circle.addEscalation(1.00001,1.00001,1.00001);
+    balloon.addEscalation(1.001,1.001,1.001);
    // pine.addEscalation (0.5,0.5,0.5);
     glutDisplayFunc([](){
         //std::cout << "glutDisplayFunc\n";
@@ -166,6 +169,7 @@ int main(int argc, char **argv)
         rectangle2.update().draw();
         circle.update().draw();
         pine.draw();
+        balloon.update().draw();
         glFlush();
     });
     //glutKeyboardFunc(keys);
