@@ -19,6 +19,7 @@ class Drawable
         Drawable & addTranslation(GLfloat dx,GLfloat dy,GLfloat dz);
         Drawable & addEscalation(GLfloat dx,GLfloat dy, GLfloat dz);
         Drawable & addRotation(Point p1, Point p2, GLfloat theta);
+        Drawable & setDynamicRotation(Point *p1,Point *p2,GLfloat theta);
         ///Applied once
         Drawable & translate(GLfloat x,GLfloat y,GLfloat z);
         Drawable & rotate(Point p1, Point p2, GLfloat theta);
@@ -36,6 +37,8 @@ class Drawable
         vv A;
     private:
         std::vector<Drawable*> children;
+        Point * p1 = NULL, * p2 = NULL;
+        GLfloat theta;
         void print(){
             std::cout << "print()\n";
             for(size_t i = 0 ; i < A.size() ; i ++){
