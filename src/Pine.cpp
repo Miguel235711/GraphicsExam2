@@ -23,3 +23,4 @@ void Pine::applyUniqueTransToPoints(GLfloat x, GLfloat y, GLfloat z){}
 void Pine::applyUniqueEscaltionToPoints(GLfloat x,GLfloat y,GLfloat z){}
 void Pine::applyUniqueRotationToPoints(GLfloat theta, Point P1, Point P2){}
 void Pine::lowLevelDraw(){}
+void Pine::applyUniqueEscalationWithPivotToPoints(GLfloat x,GLfloat y,GLfloat z,Point pivot){}

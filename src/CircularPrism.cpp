@@ -31,3 +31,4 @@ void CircularPrism::applyUniqueRotationToPoints(GLfloat theta, Point P1, Point P
 void CircularPrism::lowLevelDraw(){
 
 }
+void CircularPrism::applyUniqueEscalationWithPivotToPoints(GLfloat x,GLfloat y,GLfloat z,Point pivot){}

@@ -44,6 +44,13 @@ namespace Exam2{
             point.z = (point.z-first.z)*z+first.z;
         }
     }
+    void Polygon::applyUniqueEscalationWithPivotToPoints(GLfloat x,GLfloat y,GLfloat z,Point pivot){
+        for(auto & point: points){
+            point.x = (point.x-pivot.x)*x+pivot.x;
+            point.y = (point.y-pivot.y)*y+pivot.y;
+            point.z = (point.z-pivot.z)*z+pivot.z;
+        }
+    }
     void Polygon::applyUniqueRotationToPoints(GLfloat theta, Point P1, Point P2){
         ///
         auto m = vv(4,v(4));

@@ -37,3 +37,4 @@ void Cuboid::applyUniqueRotationToPoints(GLfloat theta, Point P1, Point P2){
 void Cuboid::lowLevelDraw(){
 
 }
+void Cuboid::applyUniqueEscalationWithPivotToPoints(GLfloat x,GLfloat y,GLfloat z,Point pivot){}

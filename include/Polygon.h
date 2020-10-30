@@ -21,6 +21,7 @@ namespace Exam2{
             void applyUniqueTransToPoints(GLfloat x, GLfloat y, GLfloat z);
             void applyUniqueEscaltionToPoints(GLfloat x,GLfloat y,GLfloat z);
             void applyUniqueRotationToPoints(GLfloat theta, Point P1, Point P2);
+            void applyUniqueEscalationWithPivotToPoints(GLfloat x,GLfloat y,GLfloat z,Point pivot);
             void lowLevelDraw();
 
         private:

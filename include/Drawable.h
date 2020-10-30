@@ -24,6 +24,7 @@ class Drawable
         Drawable & translate(GLfloat x,GLfloat y,GLfloat z);
         Drawable & rotate(Point p1, Point p2, GLfloat theta);
         Drawable & escale(GLfloat x,GLfloat y,GLfloat z);
+        Drawable & escaleWithPivot(GLfloat x,GLfloat y, GLfloat z, Point pivot);
 
     protected:
         ///to be implemented by child classes
@@ -31,6 +32,7 @@ class Drawable
         virtual void applyUniqueTransToPoints(GLfloat x, GLfloat y, GLfloat z) = 0;
         virtual void applyUniqueEscaltionToPoints(GLfloat x,GLfloat y,GLfloat z) = 0;
         virtual void applyUniqueRotationToPoints(GLfloat theta, Point P1, Point P2) = 0;
+        virtual void applyUniqueEscalationWithPivotToPoints(GLfloat x,GLfloat y,GLfloat z,Point pivot)=0;
         virtual void lowLevelDraw() = 0;
         constexpr static GLfloat pi2=4*acos(0);
         Operators3D * opGlobal;

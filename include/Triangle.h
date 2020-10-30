@@ -10,7 +10,6 @@ class Triangle : public Exam2::Polygon
     public:
         Triangle(Point p1, Point p2, Point p3, Operators3D * opGlobal);
         virtual ~Triangle();
-
     protected:
 
     private:

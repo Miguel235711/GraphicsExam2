@@ -89,6 +89,12 @@ Drawable & Drawable::escale(GLfloat x,GLfloat y,GLfloat z){
         child->escale(x,y,z);
     return *this;
 }
+Drawable & Drawable::escaleWithPivot(GLfloat x,GLfloat y, GLfloat z, Point pivot){
+    applyUniqueEscalationWithPivotToPoints(x,y,z,pivot);
+    for(auto * child:children)
+        child->escaleWithPivot(x,y,z,pivot);
+    return *this;
+}
 Drawable & Drawable::draw(){
     lowLevelDraw();
     ///draw children

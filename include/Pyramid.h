@@ -22,6 +22,7 @@ class Pyramid : public Drawable
             void applyUniqueEscaltionToPoints(GLfloat x,GLfloat y,GLfloat z);
             void applyUniqueRotationToPoints(GLfloat theta, Point P1, Point P2);
             void lowLevelDraw();
+            void applyUniqueEscalationWithPivotToPoints(GLfloat x,GLfloat y,GLfloat z,Point pivot);
     private:
 };
 

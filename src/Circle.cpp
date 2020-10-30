@@ -17,3 +17,4 @@ std::vector<Point> Circle::init(GLfloat x, GLfloat y, GLfloat r,int partitions){
     }
     return ans;
 }
+

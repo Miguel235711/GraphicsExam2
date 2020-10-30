@@ -23,3 +23,4 @@ void Balloon::applyUniqueTransToPoints(GLfloat x, GLfloat y, GLfloat z){}
 void Balloon::applyUniqueEscaltionToPoints(GLfloat x,GLfloat y,GLfloat z){}
 void Balloon::applyUniqueRotationToPoints(GLfloat theta, Point P1, Point P2){}
 void Balloon::lowLevelDraw(){}
+void Balloon::applyUniqueEscalationWithPivotToPoints(GLfloat x,GLfloat y,GLfloat z,Point pivot){}

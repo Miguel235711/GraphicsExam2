@@ -28,3 +28,4 @@ void Pyramid::applyUniqueTransToPoints(GLfloat x, GLfloat y, GLfloat z){}
 void Pyramid::applyUniqueEscaltionToPoints(GLfloat x,GLfloat y,GLfloat z){}
 void Pyramid::applyUniqueRotationToPoints(GLfloat theta, Point P1, Point P2){}
 void Pyramid::lowLevelDraw(){}
+void Pyramid::applyUniqueEscalationWithPivotToPoints(GLfloat x,GLfloat y,GLfloat z,Point pivot){}
