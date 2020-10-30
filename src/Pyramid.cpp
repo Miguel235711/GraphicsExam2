@@ -4,10 +4,15 @@ Pyramid::Pyramid(Point peak, GLfloat height,GLfloat sideLength, Operators3D * op
 {
         //ctor
     ///instantiate children and add them to this
-    auto * triangle1 = new Triangle (peak, Point (peak.x-sideLength*sqrt(2),peak.y-height,peak.z),Point (peak.x+sideLength*sqrt(2),peak.y-height, peak.z+sideLength*sqrt(2)), opGlobal);
-    auto * triangle2 = new Triangle (peak, Point (peak.x-sideLength*sqrt(2),peak.y-height,peak.z),Point (peak.x-sideLength*sqrt(2),peak.y-height, peak.z-sideLength*sqrt(2)), opGlobal);
-    auto * triangle3 = new Triangle (peak, Point (peak.x+sideLength*sqrt(2),peak.y-height,peak.z),Point (peak.x+sideLength*sqrt(2),peak.y-height, peak.z+sideLength*sqrt(2)), opGlobal);
-    auto * triangle4 = new Triangle (peak, Point (peak.x+sideLength*sqrt(2),peak.y-height,peak.z),Point (peak.x-sideLength*sqrt(2),peak.y-height, peak.z-sideLength*sqrt(2)), opGlobal);
+    //auto * triangle1 = new Triangle (peak, Point (peak.x-sideLength*sqrt(2),peak.y-height,peak.z),Point (peak.x+sideLength*sqrt(2),peak.y-height, peak.z+sideLength*sqrt(2)), opGlobal);
+    //auto * triangle2 = new Triangle (peak, Point (peak.x-sideLength*sqrt(2),peak.y-height,peak.z),Point (peak.x-sideLength*sqrt(2),peak.y-height, peak.z-sideLength*sqrt(2)), opGlobal);
+    //auto * triangle3 = new Triangle (peak, Point (peak.x+sideLength*sqrt(2),peak.y-height,peak.z),Point (peak.x+sideLength*sqrt(2),peak.y-height, peak.z+sideLength*sqrt(2)), opGlobal);
+    //auto * triangle4 = new Triangle (peak, Point (peak.x+sideLength*sqrt(2),peak.y-height,peak.z),Point (peak.x-sideLength*sqrt(2),peak.y-height, peak.z-sideLength*sqrt(2)), opGlobal);
+    auto * triangle1 = new Triangle (peak, Point (peak.x-sideLength*sqrt(2),peak.y-height,peak.z+sideLength*sqrt(2)),Point (peak.x+sideLength*sqrt(2),peak.y-height, peak.z+sideLength*sqrt(2)), opGlobal);
+    auto * triangle2 = new Triangle (peak, Point (peak.x-sideLength*sqrt(2),peak.y-height, peak.z+sideLength*sqrt(2)),Point (peak.x-sideLength*sqrt(2),peak.y-height, peak.z-sideLength*sqrt(2)), opGlobal);
+    auto * triangle3 = new Triangle (peak, Point (peak.x+sideLength*sqrt(2),peak.y-height, peak.z-sideLength*sqrt(2)),Point (peak.x+sideLength*sqrt(2),peak.y-height, peak.z+sideLength*sqrt(2)), opGlobal);
+    auto * triangle4 = new Triangle (peak, Point (peak.x+sideLength*sqrt(2),peak.y-height, peak.z-sideLength*sqrt(2)),Point (peak.x-sideLength*sqrt(2),peak.y-height, peak.z-sideLength*sqrt(2)), opGlobal);
+    addChild (triangle1);
     addChild (triangle1);
     addChild (triangle2);
     addChild (triangle3);

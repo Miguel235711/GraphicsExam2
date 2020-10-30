@@ -5,6 +5,7 @@
 #include "Triangle.h"
 #include "Rectangle.h"
 #include "Circle.h"
+#include "Pine.h"
 
 //Variables dimensiones de la pantalla
 int WIDTH=500;
@@ -15,9 +16,9 @@ float ZNEAR=0.01;
 float ZFAR=100.0;
 //Variables para definir la posicion del observador
 //gluLookAt(EYE_X,EYE_Y,EYE_Z,CENTER_X,CENTER_Y,CENTER_Z,UP_X,UP_Y,UP_Z)
-float EYE_X=10.0;
-float EYE_Y=5.0;
-float EYE_Z=10.0;
+float EYE_X=10.0*5;
+float EYE_Y=5.0*5;
+float EYE_Z=10.0*5;
 float CENTER_X=0;
 float CENTER_Y=0;
 float CENTER_Z=0;
@@ -25,12 +26,12 @@ float UP_X=0;
 float UP_Y=1;
 float UP_Z=0;
 //Variables para dibujar los ejes del sistema
-float X_MIN=-20;
-float X_MAX=20;
-float Y_MIN=-20;
-float Y_MAX=20;
-float Z_MIN=-100;
-float Z_MAX=20;
+float X_MIN=-20*5;
+float X_MAX=20*5;
+float Y_MIN=-20*5;
+float Y_MAX=20*5;
+float Z_MIN=-100*5;
+float Z_MAX=20*5;
 
 float Theta=0;
 //Variables para la definicion de objetos
@@ -115,9 +116,8 @@ auto triangle5 = Triangle(Point(0,0,0),Point(2,0,0),Point(2,2,0),opInstance);
 auto triangle6 = Triangle(Point(0,0,0),Point(2,0,0),Point(2,2,0),opInstance);
 auto rectangle = Exam2::Rectangle(2,2,opInstance);
 auto rectangle2 = Exam2::Rectangle(-2,-2,opInstance);
-auto circle = Circle(0,0,3,30,opInstance);
-
-
+auto circle = Circle(2,3,3,30,opInstance);
+auto pine = Pine (Point (3,10,5),10,1, opInstance);
 int main(int argc, char **argv)
 {
 
@@ -137,6 +137,7 @@ int main(int argc, char **argv)
     triangle6.addTranslation(0,0,-0.0001).addEscalation(1.00001,1.00001,1.00001).addRotation(Point(0,0,0),Point(0,0,1),0.1);
     rectangle.translate(0,0,5).addTranslation(0,0,0.0001).addRotation(Point(0,0,0),Point(1,1,0),0.1);
     circle.addEscalation(1.00001,1.00001,1.00001);
+   // pine.addEscalation (0.5,0.5,0.5);
     glutDisplayFunc([](){
         //std::cout << "glutDisplayFunc\n";
         glClear(GL_COLOR_BUFFER_BIT);
@@ -164,6 +165,7 @@ int main(int argc, char **argv)
         rectangle.update().draw();
         rectangle2.update().draw();
         circle.update().draw();
+        pine.draw();
         glFlush();
     });
     //glutKeyboardFunc(keys);
