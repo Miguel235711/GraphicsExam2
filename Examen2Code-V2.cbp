@@ -52,6 +52,7 @@
 		<Unit filename="include/Line.h" />
 		<Unit filename="include/Operators3D.h" />
 		<Unit filename="include/Pine.h" />
+		<Unit filename="include/Planet.h" />
 		<Unit filename="include/Point.h" />
 		<Unit filename="include/Polygon.h" />
 		<Unit filename="include/Pyramid.h" />
@@ -68,6 +69,7 @@
 		<Unit filename="src/Line.cpp" />
 		<Unit filename="src/Operators3D.cpp" />
 		<Unit filename="src/Pine.cpp" />
+		<Unit filename="src/Planet.cpp" />
 		<Unit filename="src/Point.cpp" />
 		<Unit filename="src/Polygon.cpp" />
 		<Unit filename="src/Pyramid.cpp" />

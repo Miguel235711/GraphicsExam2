@@ -35,11 +35,13 @@ class Drawable
         virtual void applyUniqueEscalationWithPivotToPoints(GLfloat x,GLfloat y,GLfloat z,Point pivot)=0;
         virtual void lowLevelDraw() = 0;
         constexpr static GLfloat pi2=4*acos(0);
+        std::vector<Drawable*> children;
         Operators3D * opGlobal;
         vv A;
-    private:
-        std::vector<Drawable*> children;
         Point * p1 = NULL, * p2 = NULL;
+    private:
+
+
         GLfloat theta;
         void print(){
             std::cout << "print()\n";

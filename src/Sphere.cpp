@@ -7,7 +7,7 @@ Sphere::Sphere(GLfloat x, GLfloat y, GLfloat z, GLfloat r, int partitions, Opera
     auto difA = r / partitions * 2, rSquared = r*r;
     auto limYH1 = y + r;
     for(GLfloat yH = y; yH <= limYH1; yH+=difA){
-        std::cout << "adding circle\n";
+        //std::cout << "adding circle\n";
         addChild(createCircle(rSquared,denominatorRa,limYH1-yH,r,yH,yH-y,x,y,z));
     }
     auto limYH2 = y - r;
@@ -24,7 +24,7 @@ Sphere::~Sphere()
 
 Circle * Sphere::createCircle(GLfloat rSquared,GLfloat denominatorRa,GLfloat dif,GLfloat r,GLfloat yH, GLfloat height,GLfloat x,GLfloat y, GLfloat z){
     auto ri = sqrt(rSquared-pow(height,2));
-    std::cout << "ri: " << ri << "\n" << "partitions: " << dif*denominatorRa << "\n";
+    //std::cout << "ri: " << ri << "\n" << "partitions: " << dif*denominatorRa << "\n";
     auto circle = new Circle(0,0,ri,dif/r*denominatorRa,opGlobal); /// optimize partitions
     circle->rotate(Point(0,0,0),Point(1,0,0),90);
     circle->translate(x,yH,z);
@@ -39,6 +39,11 @@ void Sphere::applyUniqueTransToPoints(GLfloat x, GLfloat y, GLfloat z){
 void Sphere::applyUniqueEscaltionToPoints(GLfloat x,GLfloat y,GLfloat z){
 }
 void Sphere::applyUniqueRotationToPoints(GLfloat theta, Point P1, Point P2){
+    //std::cout  <<"callledfklfjlskfjdaskfjfds\n";
+    /*for(auto & child: children){
+        child->rotate(P1,P2,theta);
+    }*/
+
 }
 void Sphere::lowLevelDraw(){
 
