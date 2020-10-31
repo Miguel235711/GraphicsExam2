@@ -41,7 +41,7 @@ Operators3D & Operators3D::LoadIdentity(vv & M)
 Operators3D & Operators3D::translate(GLfloat x, GLfloat y, GLfloat z,vv & ans) /// ans => null for local
 {
     auto tmp = vv(4,v(4));
-    std::cout << "going to translate by " << " x = " << x << " y = " << y << " z = " << z << "\n";
+    //std::cout << "going to translate by " << " x = " << x << " y = " << y << " z = " << z << "\n";
     LoadIdentity(tmp);
     tmp[0][3]=x;
     tmp[1][3]=y;
@@ -205,7 +205,7 @@ Operators3D & Operators3D::RotacionParalela(char eje, GLfloat theta, GLfloat dis
 
 Operators3D & Operators3D::RotacionLibre(GLfloat theta, v p1, v p2, vv & ans)
 {
-    std::cout << "Rotacion Libre()\n";
+    //std::cout << "Rotacion Libre()\n";
     auto difB = p2[1]-p1[1], difC = p2[2]-p1[2],thetaRad=DegToRad(theta);
     if(!difB&&!difC){
         ///special case of line parallel to X-axis
@@ -226,7 +226,7 @@ Operators3D & Operators3D::RotacionLibre(GLfloat theta, v p1, v p2, vv & ans)
     a = difA/V, b = difB/V, c = difC/V, d = (GLfloat)sqrt(b*b+c*c); ///problem when d is 0
     if(a==lastA&&b==lastB&&c==lastC&&d==lastD){
         ///use precalculus
-        std::cout << "using precalculus";
+        //std::cout << "using precalculus";
         auto r = vv(4,v(4));
         LoadIdentity(r);
         r[0][0]=r[1][1]=cos(thetaRad),r[1][0]=sin(thetaRad),r[0][1]=-r[1][0];
@@ -235,7 +235,7 @@ Operators3D & Operators3D::RotacionLibre(GLfloat theta, v p1, v p2, vv & ans)
         MultM(PreC2,ans,ans);
         return *this;
     }
-    std::cout << "...\n";
+    //std::cout << "...\n";
     lastA = a,lastB = b , lastC = c, lastD = d;
     //LoadIdentity(R);
     ///translate(-x,-y,-z)

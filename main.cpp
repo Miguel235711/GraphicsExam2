@@ -1,3 +1,4 @@
+
 #include <vector>
 #include <iostream>
 #include "Operators3D.h"
@@ -5,8 +6,10 @@
 #include "Triangle.h"
 #include "Rectangle.h"
 #include "Circle.h"
-#include "Pine.h"
-#include "Balloon.h"
+#include "Cuboid.h"
+#include "CircularPrism.h"
+#include "Sphere.h"
+#include "SkySystem.h"
 
 //Variables dimensiones de la pantalla
 int WIDTH=500;
@@ -17,9 +20,9 @@ float ZNEAR=0.01;
 float ZFAR=100.0;
 //Variables para definir la posicion del observador
 //gluLookAt(EYE_X,EYE_Y,EYE_Z,CENTER_X,CENTER_Y,CENTER_Z,UP_X,UP_Y,UP_Z)
-float EYE_X=10.0*5;
-float EYE_Y=5.0*5;
-float EYE_Z=10.0*5;
+float EYE_X=10.0;
+float EYE_Y=5.0;
+float EYE_Z=10.0;
 float CENTER_X=0;
 float CENTER_Y=0;
 float CENTER_Z=0;
@@ -27,12 +30,12 @@ float UP_X=0;
 float UP_Y=1;
 float UP_Z=0;
 //Variables para dibujar los ejes del sistema
-float X_MIN=-20*5;
-float X_MAX=20*5;
-float Y_MIN=-20*5;
-float Y_MAX=20*5;
-float Z_MIN=-100*5;
-float Z_MAX=20*5;
+float X_MIN=-20;
+float X_MAX=20;
+float Y_MIN=-20;
+float Y_MAX=20;
+float Z_MIN=-100;
+float Z_MAX=20;
 
 float Theta=0;
 //Variables para la definicion de objetos
@@ -117,9 +120,16 @@ auto triangle5 = Triangle(Point(0,0,0),Point(2,0,0),Point(2,2,0),opInstance);
 auto triangle6 = Triangle(Point(0,0,0),Point(2,0,0),Point(2,2,0),opInstance);
 auto rectangle = Exam2::Rectangle(2,2,opInstance);
 auto rectangle2 = Exam2::Rectangle(-2,-2,opInstance);
-auto circle = Circle(2,3,3,30,opInstance);
-auto pine = Pine (Point (3,10,5),10,1, opInstance);
-auto balloon = Balloon (1,1,1,2,10,opInstance);
+auto circle = Circle(0,0,3,30,opInstance);
+auto cuboid = Cuboid(3,3,3,opInstance);
+auto cuboid2 = Cuboid(2,1,3,opInstance);
+auto cuboid4= Cuboid(2,1,3,opInstance);
+auto cuboid3= Cuboid(-2,-1,-3,opInstance);
+auto circularPrism = CircularPrism(0,0,3,3,30,opInstance);
+auto sphere = Sphere(0,0,0,3,25,opInstance);
+auto sphere2 = Sphere(5,5,5,3,25,opInstance);
+auto skySystem = SkySystem(0,0,0,3,25,opInstance);
+
 int main(int argc, char **argv)
 {
 
@@ -139,13 +149,17 @@ int main(int argc, char **argv)
     triangle6.addTranslation(0,0,-0.0001).addEscalation(1.00001,1.00001,1.00001).addRotation(Point(0,0,0),Point(0,0,1),0.1);
     rectangle.translate(0,0,5).addTranslation(0,0,0.0001).addRotation(Point(0,0,0),Point(1,1,0),0.1);
     circle.addEscalation(1.00001,1.00001,1.00001);
-    balloon.addEscalation(1.001,1.001,1.001);
-   // pine.addEscalation (0.5,0.5,0.5);
+    cuboid.addTranslation(0,0.0001,0).addRotation(Point(0,0,0),Point(1,1,0),0.1);
+    cuboid2.addTranslation(0,0.0001,0.0001).addEscalation(1.00001,1.00001,1.00001);
+    circularPrism.addRotation(Point(0,0,0),Point(0,0,1),0.1);
+    sphere2.addTranslation(6.3,-0.001,-0.001).addRotation(Point(0,0,0),Point(0,0,1),0.1);
+    //skySystem.addTranslation(0.01,0,0);
+    //sphere.addRotation(Point(0,0,0),Point(0,0,1),0.1);
     glutDisplayFunc([](){
         //std::cout << "glutDisplayFunc\n";
         glClear(GL_COLOR_BUFFER_BIT);
         drawAxis();
-        triangle.draw();
+        /*triangle.draw();
         triangle2.draw();
         triangle3.draw();
         triangle4.draw();
@@ -154,12 +168,20 @@ int main(int argc, char **argv)
         rectangle.draw();
         rectangle2.draw();
         circle.draw();
+        cuboid.draw();
+        cuboid2.draw();
+        cuboid3.draw();
+        cuboid4.draw();
+        circularPrism.draw();
+        sphere.draw();
+        sphere2.draw();*/
+        skySystem.draw();
         glFlush();
     });
     glutIdleFunc([](){
         glClear(GL_COLOR_BUFFER_BIT);
         drawAxis();
-        triangle.update().draw();
+        /*triangle.update().draw();
         triangle2.update().draw();
         triangle3.update().draw();
         triangle4.update().draw();
@@ -167,9 +189,15 @@ int main(int argc, char **argv)
         triangle6.update().draw();
         rectangle.update().draw();
         rectangle2.update().draw();
-        circle.update().draw();
-        pine.draw();
-        balloon.update().draw();
+        circle.draw();*/
+        /*cuboid.update().draw();
+        cuboid2.update().draw();
+        cuboid3.update().draw();
+        cuboid4.update().draw();
+        circularPrism.update().draw();
+        sphere.update().draw();
+        sphere2.update().draw();*/
+        skySystem.update().draw();
         glFlush();
     });
     //glutKeyboardFunc(keys);

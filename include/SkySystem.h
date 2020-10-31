@@ -4,6 +4,7 @@
 #include "Operators3D.h"
 #include "Drawable.h"
 #include "Sphere.h"
+#include "Planet.h"
 
 
 class SkySystem : public Drawable
