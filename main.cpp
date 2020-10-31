@@ -10,6 +10,9 @@
 #include "CircularPrism.h"
 #include "Sphere.h"
 #include "SkySystem.h"
+#include "Car.h"
+#include "Pine.h"
+#include "Balloon.h"
 
 //Variables dimensiones de la pantalla
 int WIDTH=500;
@@ -20,9 +23,9 @@ float ZNEAR=0.01;
 float ZFAR=100.0;
 //Variables para definir la posicion del observador
 //gluLookAt(EYE_X,EYE_Y,EYE_Z,CENTER_X,CENTER_Y,CENTER_Z,UP_X,UP_Y,UP_Z)
-float EYE_X=10.0;
-float EYE_Y=5.0;
-float EYE_Z=10.0;
+float EYE_X=13.0;
+float EYE_Y=6.0;
+float EYE_Z=13.0;
 float CENTER_X=0;
 float CENTER_Y=0;
 float CENTER_Z=0;
@@ -112,7 +115,7 @@ void init()
 }
 
 auto * opInstance = new Operators3D();
-auto triangle = Triangle(Point(0,0,0),Point(2,0,0),Point(2,2,0),opInstance);
+/*auto triangle = Triangle(Point(0,0,0),Point(2,0,0),Point(2,2,0),opInstance);
 auto triangle2 = Triangle(Point(0,2,5),Point(0,0,0),Point(0,0,-5),opInstance);
 auto triangle3 = Triangle(Point(0,0,0),Point(2,0,0),Point(2,2,0),opInstance);
 auto triangle4 = Triangle(Point(0,0,0),Point(2,0,0),Point(2,2,0),opInstance);
@@ -127,8 +130,14 @@ auto cuboid4= Cuboid(2,1,3,opInstance);
 auto cuboid3= Cuboid(-2,-1,-3,opInstance);
 auto circularPrism = CircularPrism(0,0,3,3,30,opInstance);
 auto sphere = Sphere(0,0,0,3,25,opInstance);
-auto sphere2 = Sphere(5,5,5,3,25,opInstance);
+auto sphere2 = Sphere(5,5,5,3,25,opInstance);*/
 auto skySystem = SkySystem(0,0,0,3,25,opInstance);
+//auto car = Car(3,3,3,25,opInstance);
+auto car2 = Car(3,1,1.5,25,opInstance);
+auto pine = Pine (Point (3,10,5),10,1, opInstance);
+auto balloon = Balloon (1,1,1,2,10,opInstance);
+
+//auto pivotWheel = CircularPrism(0,0,2,6,25,opInstance);
 
 int main(int argc, char **argv)
 {
@@ -141,7 +150,7 @@ int main(int argc, char **argv)
     glutInitWindowSize(WIDTH, HEIGTH);
     glutCreateWindow("Examen 2");
     init();
-    triangle.translate(1,3,5).addTranslation(0,0,-0.001).addRotation(Point(0,0,0),Point(0,0,1),0.1);
+    /*triangle.translate(1,3,5).addTranslation(0,0,-0.001).addRotation(Point(0,0,0),Point(0,0,1),0.1);
     triangle2.addRotation(Point(0,0,0),Point(0,0,1),0.1);
     triangle3.addRotation(Point(0,0,0),Point(0,1,0),0.1);
     triangle4.translate(1,1,0).addTranslation(0.001,0,0).addRotation(Point(0,0,0),Point(1,1,0),0.1);
@@ -152,8 +161,12 @@ int main(int argc, char **argv)
     cuboid.addTranslation(0,0.0001,0).addRotation(Point(0,0,0),Point(1,1,0),0.1);
     cuboid2.addTranslation(0,0.0001,0.0001).addEscalation(1.00001,1.00001,1.00001);
     circularPrism.addRotation(Point(0,0,0),Point(0,0,1),0.1);
-    sphere2.addTranslation(6.3,-0.001,-0.001).addRotation(Point(0,0,0),Point(0,0,1),0.1);
-    //skySystem.addTranslation(0.01,0,0);
+    sphere2.addTranslation(6.3,-0.001,-0.001).addRotation(Point(0,0,0),Point(0,0,1),0.1);*/
+    //car.addRotation(Point(0,0,1),Point(3,0,1),0.1);
+    car2.translate(-3,0,-5).addTranslation(-0.005,0,0)/*.addRotation(Point(0,0,1),Point(3,0,1),0.1)*/.addRotation(Point(0,0,0),Point(0,1,0),0.3);
+    //pivotWheel.addRotation(Point(0,0,0),Point(0,0,1),0.1);
+    skySystem.translate(0,8,0);/*.addTranslation(0.01,0,0);*/
+    balloon.addTranslation(0.005,0.005,0.005).addEscalation(1.001,1.001,1.001);
     //sphere.addRotation(Point(0,0,0),Point(0,0,1),0.1);
     glutDisplayFunc([](){
         //std::cout << "glutDisplayFunc\n";
@@ -176,6 +189,11 @@ int main(int argc, char **argv)
         sphere.draw();
         sphere2.draw();*/
         skySystem.draw();
+        pine.draw();
+        balloon.draw();
+        //pivotWheel.draw();
+        //car.draw();
+        car2.draw();
         glFlush();
     });
     glutIdleFunc([](){
@@ -198,6 +216,11 @@ int main(int argc, char **argv)
         sphere.update().draw();
         sphere2.update().draw();*/
         skySystem.update().draw();
+        //pivotWheel.update().draw();
+        //car.update().draw();
+        car2.update().draw();
+        pine.draw();
+        balloon.update().draw();
         glFlush();
     });
     //glutKeyboardFunc(keys);

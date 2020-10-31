@@ -45,6 +45,7 @@
 			<Add directory="D:/Apps/CodeBlocks/MinGW/lib" />
 		</Linker>
 		<Unit filename="include/Balloon.h" />
+		<Unit filename="include/Car.h" />
 		<Unit filename="include/Circle.h" />
 		<Unit filename="include/CircularPrism.h" />
 		<Unit filename="include/Cuboid.h" />
@@ -62,6 +63,7 @@
 		<Unit filename="include/Triangle.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Balloon.cpp" />
+		<Unit filename="src/Car.cpp" />
 		<Unit filename="src/Circle.cpp" />
 		<Unit filename="src/CircularPrism.cpp" />
 		<Unit filename="src/Cuboid.cpp" />

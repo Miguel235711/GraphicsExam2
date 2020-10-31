@@ -19,6 +19,7 @@ Drawable::~Drawable()
 }
 Drawable & Drawable::update(){
     ///push change to global matrix
+    //std::cout << "children.size(): " << children.size() << "\n";
     opGlobal->push();
     opGlobal->MultM(A,opGlobal->A.top(),opGlobal->A.top());
     applyGlobalMatrixToPoints(); ///call method that MUST be implemented by extended classes
